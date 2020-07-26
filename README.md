@@ -13,7 +13,7 @@ This package contains a copy of the class from [`Illuminate/Foundation/Console/V
 ## Installation
 
 ```
-composer require laravelista/lumen-vendor-publish=^7.0
+composer require roba/data-processor
 ```
 
 ## Usage
@@ -25,19 +25,3 @@ protected $commands = [
     \Laravelista\LumenVendorPublish\DataProcessCommand::class
 ];
 ```
-
-## Sponsors & Backers
-
-I would like to extend my thanks to the following sponsors & backers for funding my open-source journey. If you are interested in becoming a sponsor or backer, please visit the [Backers page](https://mariobasic.com/backers).
-
-## Contributing
-
-Thank you for considering contributing to LumenVendorPublish! The contribution guide can be found [Here](https://mariobasic.com/contributing).
-
-## Code of Conduct
-
-In order to ensure that the open-source community is welcoming to all, please review and abide by the [Code of Conduct](https://mariobasic.com/code-of-conduct).
-
-## License
-
-LumenVendorPublish is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
