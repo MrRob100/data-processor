@@ -1,23 +1,21 @@
 {
-  "name": "laravelista/lumen-vendor-publish",
-  "description": "vendor:publish for Lumen framework.",
+  "name": "roba/data-processor",
+  "description": "data processor",
   "license": "MIT",
   "keywords": [
     "lumen",
-    "vendor",
-    "publish",
-    "command",
-    "console"
+    "data",
+    "processor"
   ],
   "authors": [
     {
-      "name": "Mario Bašić",
-      "email": "mario@laravelista.hr"
+      "name": "Rob Arnold",
+      "email": "robarnold100@hotmail.com"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Laravelista\\LumenVendorPublish\\": "src"
+      "Roba\\DataProcessor\\": "src"
     }
   },
   "minimum-stability": "stable",

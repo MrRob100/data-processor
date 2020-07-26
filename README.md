@@ -22,7 +22,7 @@ To be able to use it you have to add it to your `app/Console/Kernel.php` file:
 
 ```
 protected $commands = [
-    \Laravelista\LumenVendorPublish\VendorPublishCommand::class
+    \Laravelista\LumenVendorPublish\DataProcessCommand::class
 ];
 ```
 
