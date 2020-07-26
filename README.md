@@ -12,6 +12,6 @@ To be able to use it you have to add it to your `app/Console/Kernel.php` file:
 
 ```
 protected $commands = [
-    \Laravelista\LumenVendorPublish\DataProcessCommand::class
+    \Roba\DataProcessor\DataProcessCommand::class
 ];
 ```
