@@ -2,53 +2,33 @@
 
 namespace Roba\DataProcessor;
 
+use Roba\DataProcessor\Dataprocess;
+use Illuminate\Support\Facades\App;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
-use League\Flysystem\Adapter\Local as LocalAdapter;
-use League\Flysystem\Filesystem as Flysystem;
-use League\Flysystem\MountManager;
 
 class DataProcessCommand extends Command
 {
-    /**
-     * The filesystem instance.
-     *
-     * @var \Illuminate\Filesystem\Filesystem
-     */
-    protected $files;
-
-    /**
-     * The provider to publish.
-     *
-     * @var string
-     */
-    protected $provider = null;
-
-    /**
-     * The tags to publish.
-     *
-     * @var array
-     */
-    protected $tags = [];
-
     /**
      * The console command signature.
      *
      * @var string
      */
-    protected $signature = 'vendor:publish {--force : Overwrite any existing files}
-                    {--all : Publish assets for all service providers without prompt}
-                    {--provider= : The service provider that has assets you want to publish}
-                    {--tag=* : One or many tags that have assets you want to publish}';
+    protected $signature = 'load:data';
+
+
+    //  {--force : Overwrite any existing files}
+    //  {--all : Publish assets for all service providers without prompt}
+    //  {--provider= : The service provider that has assets you want to publish}
+    //  {--tag=* : One or many tags that have assets you want to publish}
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish any publishable assets from vendor packages';
+    protected $description = 'Process Data';
 
     /**
      * Create a new command instance.
@@ -70,7 +50,9 @@ class DataProcessCommand extends Command
      */
     public function handle()
     {
-        dump("data process!");
+      $process = App::make('Roba\DataProcessor\Dataprocess');
+        dump("data process2!");
+        $process->load();
     }
 
 }
