@@ -15,7 +15,7 @@ class DataProcessCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'load:data';
+    protected $signature = 'load:data {file_path}';
 
 
     //  {--force : Overwrite any existing files}
@@ -50,9 +50,9 @@ class DataProcessCommand extends Command
      */
     public function handle()
     {
-      $process = App::make('Roba\DataProcessor\Dataprocess');
-        dump("data process2!");
-        $process->load();
+        $file_path = $this->argument('file_path');
+        $process = App::make('Roba\DataProcessor\Dataprocess');
+        $process->load($file_path);
     }
 
 }

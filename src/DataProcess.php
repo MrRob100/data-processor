@@ -15,9 +15,9 @@ class DataProcess
      *
      * @return o
      */
-    public function load()
+    public function load($file_path)
     {
-      dump('in load');
+      dump('in load: '.$file_path);
     }
 
     public function other()
