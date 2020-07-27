@@ -2,7 +2,7 @@
 
 ## Description
 
-Loads xls file and processes data into csv ready for database
+Loads xls file and processes data into csv file in root directory
 
 ## Installation
 

@@ -36,7 +36,6 @@ class DataImport implements ToCollection
         $i = 0;
 
         foreach ($collection->unique() as $row) {
-            if ($i < 7) {
 
                 //sanitizes county field
                 if (in_array(ucfirst(strtolower($row->get(5))), Counties::getCounties())) {
@@ -77,12 +76,6 @@ class DataImport implements ToCollection
 
                 array_push($data, $data_row);
 
-                $i++;
-            } else {
-
-                break;
-                die();
-            }
         }
 
         //writes to csv file
@@ -97,7 +90,7 @@ class DataImport implements ToCollection
     */
     public function writeToCsv($data) {
 
-        $file = fopen("order".time().".csv","w");
+        $file = fopen("order_".time().".csv","w");
 
         foreach ($data as $line) {
             fputcsv($file, $line);
