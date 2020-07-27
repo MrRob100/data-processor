@@ -32,8 +32,6 @@ class DataProcessCommand extends Command
     {
         $file_path = $this->argument('file_path');
 
-        dump('in handle still 2');
-
         ini_set('memory_limit', 0);
 
         Excel::import(new DataImport, $file_path);
