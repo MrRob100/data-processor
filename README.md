@@ -11,7 +11,7 @@ composer require roba/data-processor
 ```
 
 
-To be able to use it you have to add it to your `app/Console/Kernel.php` file:
+Add the following code to `app/Console/Kernel.php` for command to work:
 
 ```
 protected $commands = [
@@ -23,7 +23,7 @@ The excel package class has to be made available:
 
 ### Lumen
 
-add the following line of code to bootstrap/app.php
+add the following line of code to `bootstrap/app.php` :
 
 ```
 
@@ -33,7 +33,7 @@ $app->register(Maatwebsite\Excel\ExcelServiceProvider::class);
 
 ### Laravel
 
-add the following like of code to config/app.php
+add the following like of code to `config/app.php` :
 
 ```
 'providers' => [
