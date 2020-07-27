@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\App;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
+use KunicMarko\Importer\ImporterFactory;
+
+
 // declare(strict_types=1);
 
 namespace Roba\DataProcessor;
@@ -12,7 +15,7 @@ namespace Roba\DataProcessor;
  * Class DataProcess
  * @package App\Services
  */
-class DataProcess
+class KdataProcess
 {
     /**
      * @param array $coins - all coins listed on exchange 
@@ -23,16 +26,12 @@ class DataProcess
     //~/Documents/Order_205131.xls (for testing)
     {
       dump('in load: '.$file_path);
-      // $factory = App::make('PhpOffice\PhpSpreadsheet\IOFactory');
-      // $reader = IOFactory::createReader("Xlsx");
-      // $spreadsheet = $reader->load($file_path);
 
-      // dump($reader);
+      $importerFactory = App::make(KunicMarko\Importer\ImporterFactory::class);
 
-      // $f = fopen($file_path, "r");
-      // dump($f);
+      $importer = $importerFactory->getImporter('csv');
+      
 
-      // dump(fgetcsv($f));
 
 
 
@@ -61,11 +60,6 @@ class DataProcess
       // fclose($fw);
 
       }
-
-    public function other()
-    {
-      //
-    }
 
 
 

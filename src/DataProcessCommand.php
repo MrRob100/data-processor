@@ -2,14 +2,29 @@
 
 namespace Roba\DataProcessor;
 
-use Roba\DataProcessor\Dataprocess;
-use Illuminate\Support\Facades\App;
+use App\Imports\UsersImport;
+use Roba\DataProcessor\ImportOrdersConfiguration;
+
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\App;
+
+use Roba\DataProcessor\Dataprocess;
+use Maatwebsite\Excel\Facades\Excel;
+
+
+
 use Illuminate\Support\ServiceProvider;
+use KunicMarko\Importer\ImporterFactory;
+
 
 class DataProcessCommand extends Command
 {
+
+    /**
+     * 
+     */
+    public $importerFactory;
+
     /**
      * The console command signature.
      *
@@ -30,17 +45,22 @@ class DataProcessCommand extends Command
      */
     protected $description = 'Process Data';
 
+
     /**
      * Create a new command instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  KunicMarko\Importer\ImporterFactory  $importerFactory
      * @return void
      */
-    public function __construct(Filesystem $files)
+    public function __construct(ImporterFactory $importerFactory)
     {
+
         parent::__construct();
 
-        $this->files = $files;
+
+        $this->importerFactory = $importerFactory;
+
+
     }
 
     /**
@@ -51,8 +71,74 @@ class DataProcessCommand extends Command
     public function handle()
     {
         $file_path = $this->argument('file_path');
-        $process = App::make('Roba\DataProcessor\Dataprocess');
-        $process->load($file_path);
+
+        // $importer = $importerFactory->getImporter('csv');
+
+        // dump($importer);
+
+        $this->other($file_path);
+
+        
+
+
+
+        // $process = App::make('Roba\DataProcessor\Dataprocess');
+
+
+
+        // $kprocess = App::make(Roba\DataProcessor\Kdataprocess::class);
+
+
+        // $kprocess->load($file_path);
+
+        // $iof = App::make('PhpOffice\PhpSpreadsheet\IOFactory');
+
+        // $reader = $iof::createReader("xlsx");
+
+        // $process->load($file_path);
+
+
+
+        // $import = App::make('Maatwebsite\Excel\Facades\Excel');
+
+        // $import->import(new UsersImport, 'users.xlsx');
+
+        // Excel::import(new UsersImport, 'users.xlsx');
+
+
+        // $import = new UsersImport;
+
+        // $path = '../public/Order_205131.xls';
+
+
+        // $excel = App::make('Maatwebsite\Excel\Facades\Excel');
+
+        // dump($excel);
+
+        // $import = new UsersImport;
+        // $path = $file_path;
+
+
+        // $data = $excel::toArray($import, $path);
+        // $data = $excel->toArray($import, $path);
+        // $this->excel->toArray($import, $path);
+        // $this->excel->import($import, $path);
+        // $data = Excel::import($import, $path);
+        // $data = Excel::toArray($import, $path);
+
+
+        dump('end');
+        die();
+
+    }
+
+    public function other($file_path) {
+
+        $importer = $this->importerFactory->getImporter('csv');
+
+        $importer->fromFile($file_path)
+            ->useImportConfiguration(new ImportOrdersConfiguration())
+            ->import();
     }
 
 }
