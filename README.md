@@ -23,7 +23,7 @@ The excel package class has to be made available:
 
 ### Lumen
 
-add the following line of code to `bootstrap/app.php` :
+add the following code to `bootstrap/app.php` :
 
 ```
 
@@ -33,7 +33,7 @@ $app->register(Maatwebsite\Excel\ExcelServiceProvider::class);
 
 ### Laravel
 
-add the following like of code to `config/app.php` :
+add the following code to `config/app.php` :
 
 ```
 'providers' => [
