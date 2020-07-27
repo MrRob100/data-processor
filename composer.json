@@ -23,6 +23,7 @@
     "illuminate/console": "^7.0",
     "illuminate/filesystem": "^7.0",
     "illuminate/support": "^7.0",
-    "league/flysystem": "^1.0.8"
+    "maatwebsite/excel": "^3.1",
+    "adamb/uk-counties": "^1.0"
   }
 }
