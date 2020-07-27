@@ -1,5 +1,9 @@
 # `Data Processor`
 
+## Description
+
+Loads xls file and processes data into csv ready for database
+
 ## Installation
 
 ```
@@ -19,7 +23,7 @@ The excel package class has to be made available:
 
 ### Lumen
 
-bootstrap/app.php
+add the following line of code to bootstrap/app.php
 
 ```
 
@@ -29,7 +33,7 @@ $app->register(Maatwebsite\Excel\ExcelServiceProvider::class);
 
 ### Laravel
 
-config/app.php
+add the following like of code to config/app.php
 
 ```
 'providers' => [
